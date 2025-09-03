@@ -1,0 +1,95 @@
+/* ============================= */
+/* Genel body ayarları */
+/* ============================= */
+body {
+  margin: 0; /* Sayfanın default boşluklarını kaldır */
+  padding: 0; /* Padding’i sıfırla */
+  background-color: rgb(240, 241, 241); /* Hafif gri arka plan */
+  font-family: 'Inter', Arial, sans-serif; /* Modern okunaklı font */
+  color: #000000; /* Varsayılan yazı rengi siyah */
+  line-height: 1.6; /* Yazılar daha rahat okunur */
+}
+
+/* ============================= */
+/* Flex yardımcı class’lar */
+/* ============================= */
+
+/* Yatay hizalama için flex row */
+.flex-row {
+  display: flex; /* Flexbox kullan */
+  flex-direction: row; /* Elemanları yatay sırala */
+  align-items: center; /* Dikeyde ortala */
+  justify-content: center; /* Yatayda ortala */
+  gap: 15px; /* Elemanlar arası boşluk */
+}
+
+/* Dikey hizalama için flex column */
+.flex-col {
+  display: flex; /* Flexbox kullan */
+  flex-direction: column; /* Elemanları dikey sırala */
+  align-items: center; /* Yatayda ortala (kutu hizalama) */
+  justify-content: center; /* Dikeyde ortala (kutu hizalama) */
+  text-align: center; /* İçerik (metin) ortalanır */
+  gap: 10px; /* Elemanlar arası boşluk */
+}
+
+/* ============================= */
+/* Root container ayarları */
+/* ============================= */
+#root {
+  height: 100vh; /* Tüm ekran yüksekliği */
+  display: flex; /* Flexbox ile düzen */
+  flex-direction: column; /* Header ve içerik üstten alta */
+  background-color: #f0f1f1; /* Arka planı biraz açık gri yap */
+}
+
+/* ============================= */
+/* Header tasarımı */
+/* ============================= */
+header {
+  background: #fff; /* Beyaz arka plan */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* Hafif gölge */
+  padding: 15px 30px; /* İç boşluk */
+  display: flex; /* Flexbox kullan */
+  align-items: center; /* Dikey ortala */
+  justify-content: space-between; /* Elemanları araya yay */
+  border-bottom-left-radius: 10px; /* Alt köşeleri hafif yuvarlat */
+  border-bottom-right-radius: 10px;
+}
+
+/* ============================= */
+/* Container genişlik ayarı */
+/* ============================= */
+.container {
+  width: 100%; /* Tam genişlik */
+  max-width: 1200px; /* Maksimum genişlik */
+  margin: 0 auto; /* Ortala */
+  padding: 0 15px; /* Kenarlardan biraz boşluk bırak */
+  display: flex; /* Flex ile düzen */
+  flex-wrap: wrap; /* Elemanlar sığmazsa alt satıra geçsin */
+  gap: 20px; /* Elemanlar arası boşluk */
+  box-sizing: border-box; /* Padding’i dahil et */
+}
+
+/* ============================= */
+/* Estetik detaylar için öneriler */
+/* ============================= */
+a {
+  text-decoration: none; /* Link alt çizgi kaldır */
+  color: inherit; /* Yazı rengini bozmadan miras al */
+}
+
+button {
+  font-family: inherit; /* Buton yazı fontu body ile aynı olsun */
+  cursor: pointer; /* Fare ikonunu el yap */
+  transition: all 0.3s ease; /* Hover animasyonları için */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; /* Başlıkların default margin’ini kaldır */
+  font-weight: 600; /* Başlıkları biraz kalın yap */
+}
+
+p {
+  margin: 0; /* Paragraf boşluklarını sıfırla */
+}

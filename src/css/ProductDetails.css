@@ -1,0 +1,69 @@
+.product-details {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+.product-image img {
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.product-info {
+  max-width: 500px;
+}
+
+.product-info h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.product-info p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.product-info h2 {
+  font-size: 1.5rem;
+  color: #e63946;
+}
+
+/* Fiyatın altındaki butonları kapsayan div */
+.product-number {
+  display: flex; /* Butonları yatay sırala */
+  gap: 10px; /* Butonlar arasına boşluk bırak */
+  margin-top: 15px; /* Fiyatın altına biraz boşluk bırak */
+  align-items: center; /* Dikeyde ortala */
+}
+
+/* Artı ve eksi butonlarının stili */
+.product-number svg {
+  font-size: 30px; /* Buton ikonunu büyüt */
+  cursor: pointer; /* Üzerine gelince el işareti */
+  transition: transform 0.2s, color 0.2s; /* Hover efekti için geçiş */
+}
+
+/* Hover efekti */
+.product-number svg:hover {
+  color: #fa0808; /* Daha koyu mavi */
+  transform: scale(1.2); /* Biraz büyüt */
+
+
+}
+
+.basket-button{
+margin-top: 15px;
+border-radius: 20px;
+cursor: pointer;
+border: none;
+padding: 10px;
+background-color: #f33636;
+
+
+}

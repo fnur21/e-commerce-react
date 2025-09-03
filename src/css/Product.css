@@ -1,0 +1,58 @@
+.image {
+    width: 100%; /* Resim kartın genişliğini kaplasın */
+    height: 240px; /* Sabit yükseklik */
+    object-fit: contain; /* Resim orantılı küçülsün, bozulmasın */
+    border-top-left-radius: 10px; /* Üst sol köşeyi yuvarlat */
+    border-top-right-radius: 10px; /* Üst sağ köşeyi yuvarlat */
+    background-color: #f9f9f9; /* Resim olmayan boş alan için açık gri arka plan */
+    padding: 10px; /* Resmi biraz içe al */
+}
+
+.card {
+  
+    width: 220px; /* Kart genişliği */
+    min-height: 420px; /* Minimum yükseklik */
+    background: #fff; /* Kart arka planı beyaz */
+    border-radius: 15px; /* Kart köşelerini yuvarlat */
+    margin: 15px; /* Kartlar arası boşluk */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Hafif gölge, modern görünüm */
+    overflow: hidden; /* Taşan içerikleri gizle */
+    transition: transform 0.6s ease, box-shadow 0.3s ease; /* Hover geçiş animasyonu */
+    display: flex; /* İçerikleri esnek yerleştir */
+    flex-direction: column; /* Üstten alta yerleştir */
+    justify-content: space-between; /* Kart içi boşluğu dengeli dağıt */
+}
+.card > div {
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* başlık ve fiyat arasında boşluk */
+  align-items: center;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Hover’da kart hafif yukarı kalkar */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Hover’da gölge yoğunlaşır */
+    cursor: pointer; /* Hover’da fare işareti değişir */
+}
+
+.detail-button {
+    border: none; /* Düz border yok */
+    padding: 12px 16px; /* Buton iç boşlukları */
+    border-radius: 8px; /* Buton köşelerini yuvarlat */
+    background: linear-gradient(135deg, #68686a, #c4cad3); /* Gradient renkli arka plan */
+    color: #fff; /* Yazı beyaz */
+    font-weight: 600; /* Yazıyı biraz kalın yap */
+    letter-spacing: 0.5px; /* Harfler arası boşluk */
+    transition: all 0.3s ease; /* Hover animasyonu */
+    margin: 10px auto; /* Butonu ortala, üstten boşluk bırak */
+    display: block; /* Buton blok olarak yerleşsin */
+    width: 80%; /* Buton genişliği kartın %80’i */
+    text-align: center; /* Yazıyı ortala */
+}
+
+.detail-button:hover {
+    background: linear-gradient(135deg, #b8c6dd, #292a2b); /* Hover’da gradient renk değişir */
+    transform: scale(1.05); /* Hover’da buton hafif büyür */
+}
+
+
