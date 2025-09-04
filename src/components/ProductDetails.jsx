@@ -6,7 +6,7 @@ import  '../css/ProductDetails.css';
 import { FaCirclePlus } from "react-icons/fa6";
 import { FaMinusCircle } from "react-icons/fa";
 import { useState } from 'react';
-
+import { addToBasket, calculateBasket } from "../redux/slices/basketSlice";
 
 function ProductDetails() {
 
@@ -27,9 +27,25 @@ const increment =()=>{
 }
 // setCount(prev)=>(prev+1) burda prev önceki değeri demek
 
-const discrement =()=>{
-  setCount (count - 1)
+const decrement = () => {
+        setCount(count - 1)
+    }
+
+const addBasket =()=>{
+  const payload ={
+    id,
+    price,
+    image,
+    title,
+    description,
+    count
+  }
+
+
+  dispatch(addToBasket(payload))
+    dispatch(calculateBasket());
 }
+
 
     useEffect(() => {
 getProductById();
@@ -55,11 +71,11 @@ products && products.map((product)=>{
      <div className='product-number'>
     < FaCirclePlus onClick={increment}/>
     <span>{count}</span>
-    <FaMinusCircle onClick={discrement} />
+    <FaMinusCircle onClick={decrement} />
   </div>
 
   <div>
-<button className='basket-button'>sepete ekle</button>
+<button  onClick={addBasket} className='basket-button'>sepete ekle</button>
   </div>
 
   </div>

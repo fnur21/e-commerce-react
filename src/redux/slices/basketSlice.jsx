@@ -1,43 +1,58 @@
 // normalde useState ile sepetteki ürünlri tutabilirsin am asayfa her f5 olduğunda bu değer sıfıranır o yüzden biz localStorage(tarayıcı kapansa bir veriler saklanır) veya sessionStorage (sayfa kapanınca veriler gider)kullanırız 
 
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
-
-const initialState ={
-    product:getBasketFromStorage(),
-
-
-}
-
-const writeFromBasketToStorage =(basket)=>{
-localStorage.setItrem("basket", JSON.stringify(basket))
-}
-
-const getBasketFromStorage = ()=>{
-    if(localStorage.getItem("basket")){
+const getBasketFromStorage = () => {
+    if (localStorage.getItem("basket")) {
         return JSON.parse(localStorage.getItem("basket"));
     }
-    return[];
+    return [];
 }
 
-export const basketSlice =createSlice({
-    name:"basket",
+const initialState = {
+    products: getBasketFromStorage(),
+    drawer: false,
+    totalAmount: 0
+
+}
+const writeFromBasketToStorage = (basket) => {
+    localStorage.setItem("basket", JSON.stringify(basket))
+}
+
+
+
+export const basketSlice = createSlice({
+    name: "basket",
     initialState,
-    reducer: {
-  addToBasket: (state,action )=> {
+    reducers: {
+        addToBasket: (state, action) => {
+            const findProduct = state.products && state.products.find((product) => product.id === action.payload.id);
+            if (findProduct) {
+                //daha önceden eklenmiştir.
+                const extractedProducts = state.products.filter((product) => product.id != action.payload.id);
+                findProduct.count += action.payload.count;
+                state.products = [...extractedProducts, findProduct];
+                writeFromBasketToStorage(state.products);
 
-const findProduct= product &&productSlice.find((product) => product.id === action.payload.id);
-    
-if (findProduct) {
-    
-}else{
-    state.product =[...state.product, action.payload];
-    writeFromBasketToStorage(state.product);
-}
-  }
+            } else {
+                state.products = [...state.products, action.payload];
+                writeFromBasketToStorage(state.products);
+            }
+        },
+        setDrawer: (state) => {
+            state.drawer = !state.drawer;
+        },
+
+        calculateBasket: (state) => {
+            state.totalAmount = 0;
+            state.products && state.products.map((product) => {
+                state.totalAmount += product.price * product.count;
+            })
+        }
+
+
     }
 })
 
-export const { }= basketSlice.actions
-
+export const { addToBasket, setDrawer, calculateBasket } = basketSlice.actions
 export default basketSlice.reducer
