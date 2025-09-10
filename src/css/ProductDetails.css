@@ -1,69 +1,138 @@
+/* =============================
+   PRODUCT DETAILS KONTEYNERİ
+   ============================= */
 .product-details {
-  margin-top: 100px;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  padding: 20px;
+    margin-top: 100px; /* Üstten boşluk */
+    display: flex; /* Flex ile yatay yerleşim */
+    justify-content: center; /* Ortala */
+    gap: 50px; /* Ürün görseli ve bilgisi arasındaki boşluk */
+    padding: 20px; /* Genel iç boşluk */
+    flex-wrap: wrap; /* Mobilde alt satıra geçmesi için */
 }
 
+/* =============================
+   PRODUCT IMAGE
+   ============================= */
 .product-image img {
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  width: 100%;
-  max-width: 400px;
-  height: auto;
+    border-radius: 15px; /* Köşeleri yuvarlat */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25); /* Derin gölge ile öne çıkar */
+    width: 100%; /* Konteyneri kaplasın */
+    max-width: 400px; /* Maksimum genişlik */
+    height: auto; /* Oranlı yükseklik */
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Hover için animasyon */
 }
 
+.product-image img:hover {
+    transform: scale(1.05); /* Hover’da hafif büyüsün */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35); /* Hover’da gölge derinleşir */
+}
+
+/* =============================
+   PRODUCT INFO
+   ============================= */
 .product-info {
-  max-width: 500px;
+    max-width: 500px; /* Bilgi kısmının maksimum genişliği */
+    display: flex;
+    flex-direction: column; /* Başlık, açıklama, fiyat alt alta */
+    gap: 20px; /* İçerik arası boşluk */
 }
 
+/* Ürün başlığı */
 .product-info h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+    font-size: 2.2rem; /* Büyük başlık */
+    font-weight: 700; /* Kalın yazı */
+    margin-bottom: 15px; /* Alt boşluk */
+    color: #111827; /* Modern koyu renk */
 }
 
+/* Ürün açıklaması */
 .product-info p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 20px;
+    font-size: 1.1rem; /* Okunaklı boyut */
+    color: #4b5563; /* Hafif gri ton */
+    margin-bottom: 20px; /* Alt boşluk */
+    line-height: 1.6; /* Daha rahat okunur */
 }
 
+/* Fiyat başlığı */
 .product-info h2 {
-  font-size: 1.5rem;
-  color: #e63946;
+    font-size: 1.6rem; /* Fiyat biraz daha küçük */
+    color: #e63946; /* Kırmızı ile dikkat çek */
+    margin-bottom: 15px; /* Alt boşluk */
 }
 
-/* Fiyatın altındaki butonları kapsayan div */
+/* =============================
+   PRODUCT NUMBER (ARTI / EKSİ)
+   ============================= */
 .product-number {
-  display: flex; /* Butonları yatay sırala */
-  gap: 10px; /* Butonlar arasına boşluk bırak */
-  margin-top: 15px; /* Fiyatın altına biraz boşluk bırak */
-  align-items: center; /* Dikeyde ortala */
+    display: flex; /* Butonları yatay sırala */
+    gap: 15px; /* Aralarına boşluk bırak */
+    margin-top: 15px; /* Üstten boşluk */
+    align-items: center; /* Dikeyde ortala */
 }
 
-/* Artı ve eksi butonlarının stili */
+/* Artı / eksi ikonları */
 .product-number svg {
-  font-size: 30px; /* Buton ikonunu büyüt */
-  cursor: pointer; /* Üzerine gelince el işareti */
-  transition: transform 0.2s, color 0.2s; /* Hover efekti için geçiş */
+    font-size: 32px; /* İkon boyutu büyüt */
+    cursor: pointer; /* Hover’da el işareti */
+    transition: transform 0.3s ease, color 0.3s ease; /* Hover animasyonu */
+    color: #1f2937; /* Default renk */
 }
 
-/* Hover efekti */
 .product-number svg:hover {
-  color: #fa0808; /* Daha koyu mavi */
-  transform: scale(1.2); /* Biraz büyüt */
-
-
+    color: #3b82f6; /* Hover rengi mavi */
+    transform: scale(1.3) rotate(10deg); /* Hover’da büyü ve hafif döndür */
 }
 
-.basket-button{
-margin-top: 15px;
-border-radius: 20px;
-cursor: pointer;
-border: none;
-padding: 10px;
-background-color: #f33636;
+/* =============================
+   ADD TO BASKET BUTTON
+   ============================= */
+.basket-button {
+    margin-top: 20px; /* Üstten boşluk */
+    border-radius: 25px; /* Yuvarlak köşeler */
+    cursor: pointer; /* El işareti */
+    border: none; /* Border kaldır */
+    padding: 12px 20px; /* İç boşluk */
+    background: linear-gradient(135deg, #f33636, #f87171); /* Gradient arka plan */
+    color: #fff; /* Yazı rengi beyaz */
+    font-weight: 700; /* Kalın yazı */
+    font-size: 1.1rem; /* Okunaklı boyut */
+    transition: all 0.4s ease; /* Hover animasyonu */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2); /* Hafif gölge */
+}
 
+.basket-button:hover {
+    background: linear-gradient(135deg, #f87171, #f33636); /* Hover gradient değişimi */
+    transform: scale(1.05) translateY(-2px); /* Hafif büyü + yukarı kaydır */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.35); /* Hover gölge derinleşir */
+}
 
+/* =============================
+   RESPONSIVE
+   ============================= */
+@media (max-width: 768px) {
+    .product-details {
+        flex-direction: column; /* Üst üste sıralansın */
+        gap: 30px; /* Mobilde boşluğu biraz artır */
+        margin-top: 50px; /* Üstten boşluk azalt */
+        padding: 15px; /* Mobil padding */
+    }
+
+    .product-image img {
+        max-width: 90%; /* Mobilde daha dar */
+        height: auto;
+    }
+
+    .product-info {
+        max-width: 90%; /* Mobilde daha dar */
+        text-align: center; /* Ortala metin */
+    }
+
+    .product-number {
+        justify-content: center; /* Butonları ortala */
+    }
+
+    .basket-button {
+        width: 70%; /* Mobilde buton genişliği */
+        margin: 20px auto; /* Ortala */
+    }
 }
