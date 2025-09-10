@@ -1,58 +1,94 @@
+/* =============================
+   PRODUCT CARD / ÜRÜN KARTI
+   ============================= */
+
+/* Kart içindeki resim stili */
 .image {
-    width: 100%; /* Resim kartın genişliğini kaplasın */
+    width: 100%; /* Kartın tüm genişliğini kaplasın */
     height: 240px; /* Sabit yükseklik */
-    object-fit: contain; /* Resim orantılı küçülsün, bozulmasın */
-    border-top-left-radius: 10px; /* Üst sol köşeyi yuvarlat */
-    border-top-right-radius: 10px; /* Üst sağ köşeyi yuvarlat */
-    background-color: #f9f9f9; /* Resim olmayan boş alan için açık gri arka plan */
+    object-fit: cover; /* Resim kırpılmadan kartı doldursun */
+    border-top-left-radius: 15px; /* Üst sol köşe yuvarlat */
+    border-top-right-radius: 15px; /* Üst sağ köşe yuvarlat */
+    background-color: #f3f4f6; /* Boş alanlar için açık gri arka plan */
     padding: 10px; /* Resmi biraz içe al */
+    transition: transform 0.5s ease, box-shadow 0.3s ease; /* Hover animasyonu için */
 }
 
+.image:hover {
+    transform: scale(1.05); /* Hover’da resim hafif büyüsün */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Hover’da gölge belirginleşir */
+}
+
+/* Kart kapsayıcı */
 .card {
-  
     width: 220px; /* Kart genişliği */
-    min-height: 420px; /* Minimum yükseklik */
-    background: #fff; /* Kart arka planı beyaz */
-    border-radius: 15px; /* Kart köşelerini yuvarlat */
+    min-height: 450px; /* Minimum yükseklik */
+    background: #ffffff; /* Kart arka planı beyaz */
+    border-radius: 20px; /* Kart köşelerini yuvarlat */
     margin: 15px; /* Kartlar arası boşluk */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Hafif gölge, modern görünüm */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1); /* Hafif gölge, modern görünüm */
     overflow: hidden; /* Taşan içerikleri gizle */
-    transition: transform 0.6s ease, box-shadow 0.3s ease; /* Hover geçiş animasyonu */
-    display: flex; /* İçerikleri esnek yerleştir */
-    flex-direction: column; /* Üstten alta yerleştir */
-    justify-content: space-between; /* Kart içi boşluğu dengeli dağıt */
+    transition: transform 0.6s ease, box-shadow 0.4s ease; /* Hover animasyonu */
+    display: flex; /* İçerik flex ile yerleşsin */
+    flex-direction: column; /* Üstten alta sırala */
+    justify-content: space-between; /* İçerik arasında boşluğu dengeli dağıt */
 }
+
+/* Kart içi başlık ve fiyat alanı */
 .card > div {
-  display: flex;
-  flex-direction: column;
-  gap: 60px; /* başlık ve fiyat arasında boşluk */
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Başlık ve fiyat arasında boşluk */
+    align-items: center; /* İçerikleri ortala */
+    padding: 15px 0; /* Kart içi üst ve alt boşluk */
 }
 
+/* Kart hover efekti */
 .card:hover {
-    transform: translateY(-5px); /* Hover’da kart hafif yukarı kalkar */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Hover’da gölge yoğunlaşır */
-    cursor: pointer; /* Hover’da fare işareti değişir */
+    transform: translateY(-8px); /* Hover’da kart hafif yukarı kalkar */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25); /* Hover’da gölge yoğunlaşır */
+    cursor: pointer; /* Fare ikonunu değiştir */
 }
 
+/* Detay butonu */
 .detail-button {
     border: none; /* Düz border yok */
-    padding: 12px 16px; /* Buton iç boşlukları */
-    border-radius: 8px; /* Buton köşelerini yuvarlat */
-    background: linear-gradient(135deg, #68686a, #c4cad3); /* Gradient renkli arka plan */
-    color: #fff; /* Yazı beyaz */
-    font-weight: 600; /* Yazıyı biraz kalın yap */
+    padding: 14px 18px; /* Buton iç boşluk */
+    border-radius: 12px; /* Buton köşelerini yuvarlat */
+    background: linear-gradient(135deg, #4f46e5, #3b82f6); /* Canlı gradient arka plan */
+    color: #fff; /* Yazı rengi beyaz */
+    font-weight: 700; /* Yazı kalınlığı */
     letter-spacing: 0.5px; /* Harfler arası boşluk */
-    transition: all 0.3s ease; /* Hover animasyonu */
-    margin: 10px auto; /* Butonu ortala, üstten boşluk bırak */
-    display: block; /* Buton blok olarak yerleşsin */
-    width: 80%; /* Buton genişliği kartın %80’i */
+    transition: all 0.4s ease; /* Hover animasyonu */
+    margin: 10px auto; /* Ortala ve üstten boşluk bırak */
+    display: block; /* Blok olarak yerleşsin */
+    width: 85%; /* Buton genişliği kartın %85’i */
     text-align: center; /* Yazıyı ortala */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1); /* Butona hafif gölge */
 }
 
+/* Detay buton hover efekti */
 .detail-button:hover {
-    background: linear-gradient(135deg, #b8c6dd, #292a2b); /* Hover’da gradient renk değişir */
-    transform: scale(1.05); /* Hover’da buton hafif büyür */
+    background: linear-gradient(135deg, #3b82f6, #06b6d4); /* Hover’da gradient değişir */
+    transform: scale(1.08) translateY(-2px); /* Hover’da buton büyür ve yukarı kayar */
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25); /* Hover’da gölge derinleşir */
 }
 
+/* =============================
+   RESPONSIVE AYARLAR
+   ============================= */
+@media (max-width: 768px) {
+    .card {
+        width: 180px; /* Mobilde daha dar kart */
+        min-height: 400px; /* Mobilde minimum yükseklik */
+    }
 
+    .image {
+        height: 200px; /* Mobilde resim biraz daha kısa */
+    }
+
+    .detail-button {
+        width: 90%; /* Buton genişliği %90 */
+        padding: 12px 16px; /* Buton padding küçült */
+    }
+}
