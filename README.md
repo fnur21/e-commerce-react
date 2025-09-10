@@ -1,20 +1,21 @@
-🛒 E-Commerce React Project
+# 🛒 E-Commerce React  
 
-Bu proje, React + Vite altyapısı kullanılarak geliştirilmiş basit bir e-ticaret uygulamasıdır. Amaç, modern frontend teknolojilerini kullanarak ürün listeleme, ürün detay sayfası, sepet işlemleri ve kullanıcı deneyimi odaklı bir arayüz oluşturmaktır.
+Modern teknolojiler kullanılarak geliştirilmiş bir **e-ticaret web uygulaması**.  
+Amaç: Ürün listeleme, ürün detay sayfası, sepet işlemleri ve kullanıcı deneyimi odaklı bir arayüz geliştirmek.  
 
-🚀 Kullanılan Teknolojiler
+---
 
-React – Component tabanlı frontend kütüphanesi
+## 🚀 Kullanılan Teknolojiler
+- ⚛️ **React** – Component tabanlı frontend kütüphanesi  
+- ⚡ **Vite** – Hızlı geliştirme ortamı  
+- 🧭 **React Router DOM** – Sayfa yönlendirmeleri  
+- 🎨 **TailwindCSS** – Responsive ve modern tasarım  
+- 💾 **localStorage** – Sepet ve kullanıcı verilerini saklamak için  
 
-Vite – Hızlı geliştirme ortamı
+---
 
-React Router DOM – Sayfa yönlendirmeleri
-
-TailwindCSS – Responsive ve modern tasarım
-
-localStorage – Sepet ve kullanıcı verilerini saklamak için
-
-📂 Proje Yapısı
+## 📂 Proje Yapısı
+```bash
 e-commerce-react/
 │── src/
 │   ├── components/   # Header, Footer, Navbar, ProductCard...
@@ -25,22 +26,14 @@ e-commerce-react/
 │── package.json
 │── README.md
 
-📸 Ekran Görüntüleri
+✅ Mevcut Özellikler
+ Ürünlerin listelenmesi
 
-(buraya ileride arayüzden screenshot eklenebilir)
+ Responsive tasarım
 
-📌 Mevcut Özellikler
-
-Ürünlerin listelenmesi
-
-Responsive tasarım
-
-Dinamik sayfa yapısı (React Router ile)
-
-Temel component mimarisi
+ Temel component mimarisi
 
 🔮 Geliştirilecek Özellikler
-
  Ürün Detay Sayfası → Her ürün için ayrı sayfa
 
  Sepet Fonksiyonu → Sepete ekle/çıkar, adet artır/azalt
@@ -59,7 +52,9 @@ Temel component mimarisi
 
  Deploy → Vercel/Netlify ile canlıya alma
 
-📖 Kurulum ve Çalıştırma
+🛠️ Kurulum ve Çalıştırma
+bash
+Kodu kopyala
 # Depoyu klonla
 git clone https://github.com/fnur21/e-commerce-react.git
 
@@ -71,7 +66,7 @@ npm install
 
 # Geliştirme ortamını başlat
 npm run dev
-
 👩‍💻 Geliştirici
+Fatma Nur Pekmez
+📌 GitHub: @fnur21
 
-Fatma Nur Pekmez – GitHub @fnur21
