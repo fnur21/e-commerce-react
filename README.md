@@ -1,12 +1,72 @@
-# React + Vite
+# 🛒 E-Commerce React  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern teknolojiler kullanılarak geliştirilmiş bir **e-ticaret web uygulaması**.  
+Amaç: Ürün listeleme, ürün detay sayfası, sepet işlemleri ve kullanıcı deneyimi odaklı bir arayüz geliştirmek.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Kullanılan Teknolojiler
+- ⚛️ **React** – Component tabanlı frontend kütüphanesi  
+- ⚡ **Vite** – Hızlı geliştirme ortamı  
+- 🧭 **React Router DOM** – Sayfa yönlendirmeleri  
+- 🎨 **TailwindCSS** – Responsive ve modern tasarım  
+- 💾 **localStorage** – Sepet ve kullanıcı verilerini saklamak için  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📂 Proje Yapısı
+```bash
+e-commerce-react/
+│── src/
+│   ├── components/   # Header, Footer, Navbar, ProductCard...
+│   ├── pages/        # Home, ProductDetails, Cart...
+│   ├── data/         # products.json (dummy data)
+│   ├── App.jsx
+│── public/
+│── package.json
+│── README.md
+
+✅ Mevcut Özellikler
+ Ürünlerin listelenmesi
+
+ Responsive tasarım
+
+ Temel component mimarisi
+
+🔮 Geliştirilecek Özellikler
+ Ürün Detay Sayfası → Her ürün için ayrı sayfa
+
+ Sepet Fonksiyonu → Sepete ekle/çıkar, adet artır/azalt
+
+ localStorage Desteği → Sayfa yenilense bile sepet korunacak
+
+ Arama Çubuğu → Ürün ismine göre arama
+
+ Kategori Filtreleme → Elektronik, giyim, aksesuar vb.
+
+ Kullanıcı Girişi → Basit login/register ekranı
+
+ Admin Paneli → Yeni ürün ekleme/silme
+
+ API Entegrasyonu → Fake Store API’den canlı ürün verisi
+
+ Deploy → Vercel/Netlify ile canlıya alma
+
+🛠️ Kurulum ve Çalıştırma
+bash
+Kodu kopyala
+# Depoyu klonla
+git clone https://github.com/fnur21/e-commerce-react.git
+
+# Proje klasörüne gir
+cd e-commerce-react
+
+# Gerekli paketleri yükle
+npm install
+
+# Geliştirme ortamını başlat
+npm run dev
+👩‍💻 Geliştirici
+Fatma Nur Pekmez
+📌 GitHub: @fnur21
+
