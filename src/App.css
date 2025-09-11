@@ -8,7 +8,7 @@ body {
   font-family: 'Inter', Arial, sans-serif; /* Modern okunaklı font */
   color: #1f2937; /* Yazı rengi */
   line-height: 1.6; /* Daha rahat okunur */
-  background: linear-gradient(135deg, #b0c5c5, #0b3162); /* Hafif gradient arka plan */
+  background: linear-gradient(135deg, #b0c5c5, #031730); /* Hafif gradient arka plan */
   transition: background 0.4s ease; /* Arka plan değişim animasyonu */
 }
 

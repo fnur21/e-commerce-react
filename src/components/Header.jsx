@@ -1,71 +1,78 @@
-import React from 'react'
+import React, { useState } from 'react';
 import '../css/Header.css';
 import { FaShoppingBasket } from "react-icons/fa";
-import { MdDarkMode } from "react-icons/md";
-import { MdLightMode } from "react-icons/md";
-import  { useState } from "react";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 import Badge from '@mui/material/Badge';
-import { useNavigate } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setDrawer } from "../redux/slices/basketSlice"; 
-
-
+import { FaHome, FaSignInAlt } from "react-icons/fa"; // ikonlar
 
 function Header() {
 
-    // burda theme ile şu anki tema açıkk mı kapalı mı bu bilgiyi tutuyoruz (true false ile)
-    // setTheme ise bu değeri değiştirmek için kullanacağımız fonksiyon oluyo
-const [theme,setTheme]=useState(false);
+    // Tema durumu: true = dark mode, false = light mode
+    const [theme, setTheme] = useState(false);
+
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { products } = useSelector((store) => store.basket);
 
-const navigate =useNavigate();
-
-const{products}= useSelector((store)=>store.basket)
-
-//  bu değeri değiştirmek için kullanacağımız setTheme fonksiyonunu tanımlıyoruz
-// them true ise arka plan rengi siyaz yazı beyaz değilse tersi
-
-const changeTheme = () =>{
-
-    const root = document.getElementById("root");
-   
-    if(theme){
-        root.style.backgroundColor ="black";
-        root.style.color="#fff"
-    }else{
-        root.style.backgroundColor="#fff";
-        root.style.color="black"
+    // Tema değiştirme fonksiyonu
+    const changeTheme = () => {
+        const root = document.getElementById("root");
+        if(theme){
+            root.style.backgroundColor = "black";
+            root.style.color = "#fff";
+        } else {
+            root.style.backgroundColor = "#fff";
+            root.style.color = "black";
+        }
+        setTheme(!theme);
     }
-    //  burda ise setTheme ! ,le değeri tersine çeviriyorsyn
-     setTheme(!theme);
+
+    return (
+        <div className="header-container" style={{display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'space-between', padding:'10px 20px'}}>
+            
+            {/* Logo ve Başlık */}
+            <div className='flex-row'>
+                <img className='logo' src="./src/images/logo.png" alt="Logo" />
+                <p className='logo-text'>PARGE A.Ş.</p>
+            </div>
+
+            {/* Menü & Arama & Sepet */}
+            <div className='flex-row' style={{alignItems:'center', gap:'20px'}}>
+                
+            {/* React Router Linkleri */}
+<div className="nav-links" style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
+  <Link to="/" className="link">
+    <FaHome style={{ marginRight: '6px' }} /> Ana Sayfa
+  </Link>
+  <Link to="/auth" className="link">
+    <FaSignInAlt style={{ marginRight: '6px' }} /> Giriş
+  </Link>
+</div>
+                {/* Arama Input */}
+                <input className='search-input' placeholder='Bir şeyler arayın ...' type="text" />
+
+                {/* Tema ve Sepet */}
+                <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
+                    {theme ? 
+                        <MdLightMode className='icon' onClick={changeTheme} /> 
+                        : 
+                        <MdDarkMode className='icon' onClick={changeTheme} />
+                    }
+
+                    <Badge 
+                        onClick={() => dispatch(setDrawer())} 
+                        badgeContent={products.length} 
+                        color="error"
+                    >
+                        <FaShoppingBasket className='icon' />  
+                    </Badge>
+                </div>
+            </div>
+        </div>
+    )
 }
 
-
-  return (
-    <div style={{display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
-        <div className='flex-row'>
-            <img className='logo' src="./src/images/logo.png" alt="" />
-            <p className='logo-text'>PARGE A.Ş.</p>
-        </div>
-
-        <div className='flex-row'> 
-            <input className='search-input' placeholder='bir şeyler arayın ...' type="text" />
-          <div >
-
-
-             {theme ? <MdLightMode className='icon' onClick={changeTheme} /> : <MdDarkMode  className='icon' onClick={changeTheme}/>  }
-            {/* <MdDarkMode  className='icon'/>  şimdi burası dark mode içinn kullanılacak o yüzden moon ve lamp arasında geçiş olacak*/ }
-            
-            
-                 <Badge onClick={() => dispatch(setDrawer())} badgeContent={products.length} color="error">
-                <FaShoppingBasket style={{marginRight:'5px'}} className='icon' />                </Badge>  
-           </div>
-            
-
-        </div>
-    </div>
-  )
-}
-
-export default Header
+export default Header;

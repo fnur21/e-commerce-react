@@ -111,32 +111,21 @@ header {
 }
 
 /* Hover underline animation for nav items (if you have text links) */
-.nav-link {
-  position: relative;
-  color: #f8fafc;
-  font-weight: 600;
+.nav-links .link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  font-weight: 500;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: 0.3s;
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -4px;
-  background-color: #3b82f6;
-  transition: width 0.3s ease;
+.nav-links .link:hover {
+  color: #facc15; /* hover'da sarı renk */
+  transform: translateY(-2px);
 }
 
-.nav-link:hover {
-  color: #3b82f6;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
 
 /* Responsive */
 @media (max-width: 768px) {
