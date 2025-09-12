@@ -6,7 +6,7 @@ import RouterConfig from './config/RouterConfig'
 import Loading from './components/Loading'
 import Drawer from '@mui/material/Drawer';
 import { useDispatch, useSelector } from 'react-redux'
-import { calculateBasket, setDrawer } from './redux/slices/basketSlice'
+import { calculateBasket, setDrawer , removeFromBasket } from './redux/slices/basketSlice'
 
 function App() {
 
@@ -33,7 +33,20 @@ function App() {
                           <img style={{ marginRight: '5px' }} src={product.image} width={50} height={50} />
                           <p style={{ width: '320px', marginRight: '5px' }}>{product.title}({product.count})</p>
                           <p style={{ fontWeight: 'bold', marginRight: '10px', width: '60px' }}>{product.price}TL</p>
-                          <button style={{ padding: '5px', borderRadius: '15px', backgroundColor: 'rgb(185, 76, 76)', border: 'none', color: '#fff', width: '50px' }}>sil</button>
+                      <button 
+  onClick={() => dispatch(removeFromBasket(product.id))} 
+  style={{ 
+    padding: '5px', 
+    borderRadius: '15px', 
+    backgroundColor: 'rgb(185, 76, 76)', 
+    border: 'none', 
+    color: '#fff', 
+    width: '50px' 
+  }}
+>
+  sil
+</button>
+
                         </div>
       
       
