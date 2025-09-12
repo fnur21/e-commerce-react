@@ -34,11 +34,8 @@ e-commerce-react/
  Temel component mimarisi
 
 🔮 Geliştirilecek Özellikler
- Ürün Detay Sayfası → Her ürün için ayrı sayfa
 
- Sepet Fonksiyonu → Sepete ekle/çıkar, adet artır/azalt
-
- localStorage Desteği → Sayfa yenilense bile sepet korunacak
+localStorage Desteği → Sayfa yenilense bile sepet korunacak
 
  Arama Çubuğu → Ürün ismine göre arama
 
