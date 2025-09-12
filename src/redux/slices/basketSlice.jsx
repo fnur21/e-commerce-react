@@ -28,12 +28,10 @@ export const basketSlice = createSlice({
         addToBasket: (state, action) => {
             const findProduct = state.products && state.products.find((product) => product.id === action.payload.id);
             if (findProduct) {
-                //daha önceden eklenmiştir.
                 const extractedProducts = state.products.filter((product) => product.id != action.payload.id);
                 findProduct.count += action.payload.count;
                 state.products = [...extractedProducts, findProduct];
                 writeFromBasketToStorage(state.products);
-
             } else {
                 state.products = [...state.products, action.payload];
                 writeFromBasketToStorage(state.products);
@@ -48,11 +46,18 @@ export const basketSlice = createSlice({
             state.products && state.products.map((product) => {
                 state.totalAmount += product.price * product.count;
             })
-        }
+        },
 
+        // ✅ Silme fonksiyonu eklendi
+        removeFromBasket: (state, action) => {
+            state.products = state.products.filter(item => item.id !== action.payload);
+            writeFromBasketToStorage(state.products); // localStorage güncelle
+            // toplam tutarı tekrar hesapla
+            state.totalAmount = state.products.reduce((total, item) => total + item.price * item.count, 0);
+        }
 
     }
 })
 
-export const { addToBasket, setDrawer, calculateBasket } = basketSlice.actions
+export const { addToBasket, setDrawer, calculateBasket, removeFromBasket } = basketSlice.actions
 export default basketSlice.reducer
